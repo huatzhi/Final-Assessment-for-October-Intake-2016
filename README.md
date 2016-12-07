@@ -51,6 +51,8 @@ Plan your app in Trello and add your lead mentor as a collaborator.
 * You will need to demonstrate your app and explain your code
 
 * Schedule a time with us for the code review session!
+```
 - Code Review Session: 27 and 28 Dec
 - Duration: Max. 1 hour
 - Put the correct link here the slots are finalized: https://calendly.com/
+```
