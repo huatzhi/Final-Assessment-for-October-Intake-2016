@@ -20,32 +20,31 @@ Location: Remote/On-Site
 * An Auction App
 * A Second-Nand Buy and Sell App (e.g. Carousell, mudah.com.my, imsold)
 
-Your app must include at least the following 5 features:
+Your app must include *at least* the following 5 features:
 
-  1. A user authentication from scratch (sign up/sign in). [This may be a useful resource](http://guides.rubyonrails.org/action_controller_overview.html#session) to help you get started.
-
-  2. Users should have a concept of roles (for e.g. admin vs regular users).
-
-  3. A search functionality (for e.g. search for users, search for products).
-
-  4. Integrate with at least 1 external API provider (Twitter, Facebook etc+).
-
-  5. Some AJAX functionality.
+1. A user authentication from scratch (sign up/sign in). [This may be a useful resource](http://guides.rubyonrails.org/action_controller_overview.html#session) to help you get started.
+2. Users should have a concept of roles (for e.g. admin vs regular users).
+3. A search functionality (for e.g. search for users, search for products).
+4. Integrate with at least 1 external API provider (Twitter, Facebook etc+).
+5. Some AJAX functionality.
 
 
 ###2. App planning
 Plan your app in Trello and add your lead mentor as a collaborator. Given the time frame, prioritize accordingly on the main features that you would like to focus on.
 
+
 ###3. Write some tests
-a. Write some model validation test (for e.g. unique email).
-b. Write at least 2 model specs, testing any custom model methods (test for happy and edgy paths).
-c. Write at least 1 integration spec using Capybara's library.
+1. Write some model validation test (for e.g. unique email).
+2. Write at least 2 model specs, testing any custom model methods (test for happy and edgy paths).
+3. Write at least 1 integration spec using Capybara's library.
+
 
 ###4. When you are done, or when the time's up, *git commit and git push* to your Github repo.
 
+
 ###5. [Schedule a time](https://calendly.com/nextacademy) with us for a code review session.
 
-* During the code review session, you will be asked to demonstrate your app and explain your code
+During the code review session, you will be asked to demonstrate your app and explain your code
 
 ```
 - Dates: 27 and 28 Dec, 2016
