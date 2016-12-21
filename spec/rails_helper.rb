@@ -19,4 +19,8 @@ RSpec.configure do |config|
   config.after(:each) { DatabaseCleaner.clean }
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
+  # for some reason, 'root_path' is not define in rspec, this line include the route variables to fix
+  config.include Rails.application.routes.url_helpers
+  # for some reason, require capybara does not access those function, this line is a fix
+  config.include Capybara::DSL
 end
