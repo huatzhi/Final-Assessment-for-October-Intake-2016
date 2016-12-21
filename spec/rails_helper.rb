@@ -12,7 +12,9 @@ ActiveRecord::Migration.maintain_test_schema!
 RSpec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.use_transactional_fixtures = false
-  config.before(:suite) { DatabaseCleaner.clean_with(:truncation) }
+  # Fix the bug that delete some meta data causing 'environment' issue
+  # Base on solution in this link: https://github.com/DatabaseCleaner/database_cleaner/issues/445
+  config.before(:suite) { DatabaseCleaner.clean_with(:truncation, except: %w(ar_internal_metadata)) }
   config.before(:each) { DatabaseCleaner.strategy = :transaction }
   config.before(:each, :js => true) { DatabaseCleaner.strategy = :truncation }
   config.before(:each) { DatabaseCleaner.start }
