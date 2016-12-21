@@ -8,6 +8,6 @@ module ApplicationHelper
   end
 
   def authorize_admin
-    redirect_to root_url, alert: 'Only admin can do that.' if !current_user.nil? && current_user.type == 'admin'
+    redirect_to root_url, alert: 'Only admin can do that.' if !current_user.nil? && current_user.type == 'AdminUser'
   end
 end
