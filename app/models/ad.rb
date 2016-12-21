@@ -1,4 +1,5 @@
 class Ad < ApplicationRecord
+  belongs_to :user
   enum location: {
     'Johor': 0,
     'Kedah': 1,
