@@ -42,14 +42,14 @@ Plan your app in Trello and add your lead mentor as a collaborator. Given the ti
 ###4. When you are done, or when the time's up, *git commit and git push* to your Github repo.
 
 
-###5. [Schedule a time](https://calendly.com/nextacademy/octcodereview) with us for a code review session.
+###5. [Schedule a time](https://docs.google.com/spreadsheets/d/1qSGtV0bmglm84EeVWCNODgvS9tb2dtabP1u6JY3sVps/edit?usp=sharing) with us for a code review session.
 
 During the code review session, you will be asked to demonstrate your app and explain your code
 
 ```
-- Dates: 27 and 28 Dec, 2016
+- Dates: 27 Dec, 2016
 - Duration: ~ 30 minutes per session 
-- Location: Remote or On-Site (slack us your preference)
+- Location: Remote or On-Site
 ```
 
-Schedule a time with us on https://calendly.com/nextacademy/octcodereview.
+Schedule a time with us [here (https://docs.google.com/spreadsheets/d/1qSGtV0bmglm84EeVWCNODgvS9tb2dtabP1u6JY3sVps/edit?usp=sharing)].
