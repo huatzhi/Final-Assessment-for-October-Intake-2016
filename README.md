@@ -52,4 +52,5 @@ During the code review session, you will be asked to demonstrate your app and ex
 - Location: Remote or On-Site
 ```
 
-Schedule a time with us [here (https://docs.google.com/spreadsheets/d/1qSGtV0bmglm84EeVWCNODgvS9tb2dtabP1u6JY3sVps/edit?usp=sharing)].
+Schedule a time with us [here] (https://docs.google.com/spreadsheets/d/1qSGtV0bmglm84EeVWCNODgvS9tb2dtabP1u6JY3sVps/edit?usp=sharing).
+Please put a remark in the spreadsheet if you are not able to make it on 27 Dec, or slack @gloteng to discuss your availability. Thanks!
