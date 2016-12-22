@@ -5,7 +5,6 @@ describe 'navigate' do
     AdminUser.create!(username:'admin', email:'admin@huatzhi.com', password:'huatzhi', password_confirmation:'huatzhi')
     @admin_user = AdminUser.first
     page.set_rack_session(user_id: @admin_user.id)
-    
   end
 
   describe 'index' do
@@ -22,8 +21,8 @@ describe 'navigate' do
           description: "The description of #{number}.",
           user_id: @admin_user.id
         )
-      visit ads_path
       end
+      visit ads_path
     end
 
     it 'show all ads' do
@@ -83,6 +82,36 @@ describe 'navigate' do
       page.set_rack_session(user_id: nil)
       visit new_ad_path
       expect(page.current_path).to eq log_in_path
+    end
+  end
+
+  describe 'editing' do
+    before do
+      4.times do |number|
+        Ad.create!(
+          title:"#{number} title", 
+          price: number, 
+          location: rand(0..13), 
+          condition: rand(0..1), 
+          contact_name: "Mr. #{number}",
+          phone_number: (number*rand(100000..999999)).to_s,
+          email: "test@test.test",
+          description: "The description of #{number}.",
+          user_id: @admin_user.id
+        )
+      end
+      visit edit_ad_path(Ad.find_by_title('1 title').id)
+    end
+
+    it 'can be reached successfully' do
+      expect(page.status_code).to eq(200)
+      expect(page.current_path).to eq edit_ad_path(Ad.find_by_title('1 title').id)
+    end
+
+    it 'allows user to edit the ads they created' do
+      fill_in 'ad[title]', with: "Updated title on 1"
+      click_on "Update!"
+      expect(page).to have_content("Updated title on 1")
     end
   end
 end

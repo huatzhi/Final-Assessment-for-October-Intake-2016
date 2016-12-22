@@ -1,6 +1,7 @@
 class AdsController < ApplicationController
-  before_action :set_ad, only: [:show]
-  before_action :authorize, only: [:new, :create]
+  before_action :set_ad, only: [:show, :edit, :update]
+  before_action :authorize, only: [:new, :create, :edit, :update]
+  before_action :authorize_owner, only: [:edit, :update]
 
   def index
     @index = Ad.all
@@ -25,6 +26,17 @@ class AdsController < ApplicationController
     @ad = Ad.find(params[:id])
   end
 
+  def edit
+  end
+
+  def update
+    if @ad.update_attributes(ad_params)
+      redirect_to @ad, notice: 'Update succeed.'
+    else
+      render :edit, notice: 'There was an error processing your request!'
+    end
+  end
+
   private
   def ad_params
     params.require(:ad).permit(:title, :price, :location, :condition, :contact_name, :phone_number, :email, :description, {pictures: []})
@@ -32,5 +44,12 @@ class AdsController < ApplicationController
 
   def set_ad
     @ad = Ad.find(params[:id])
+  end
+
+  def authorize_owner
+    @ad = current_user.ads.find(params[:id])
+    if @ad.nil?
+      redirect_to ads_path, notice: 'You do not have the permission to do this action'
+    end
   end
 end

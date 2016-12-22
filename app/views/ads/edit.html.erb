@@ -1,0 +1,31 @@
+<h1>Edit Ad</h1>
+
+<%= form_for @ad, url: {action: 'update'} do |f| %>
+  <%= f.label :title %><br />
+  <%= f.text_field :title %><br />
+  <br />
+  <%= f.label :description %><br />
+  <%= f.text_area :description %><br />
+  <br />
+  <%= f.label :price %><br />
+  <%= f.number_field :price, :class => 'text_field', :step => 0.01 %><br />
+  <br />
+  <%= f.label :location %> <%= f.select(:location, Ad.locations.keys.map {|location| [location.titleize,location]}) %><br />
+  <br />
+  <%= f.label :condition %><br />
+  <%= f.collection_radio_buttons :condition, Ad.conditions, :first, :first %><br />
+  <br />
+  <%= f.label :contact_name %><br />
+  <%= f.text_field :contact_name %><br />
+  <br />
+  <%= f.label :phone_number %><br />
+  <%= f.text_field :phone_number %><br />
+  <br />
+  <%= f.label :email %><br />
+  <%= f.text_field :email %><br />
+  <br />
+  <%= f.label :pictures %><br />
+  <%= f.file_field :pictures, multiple: true %><br />
+  <br />
+  <%= f.submit "Update!" %>
+<% end %>

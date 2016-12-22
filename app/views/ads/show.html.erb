@@ -17,6 +17,12 @@ Contact name: <%= @ad.contact_name %><br /><br />
 
 Description: <%= @ad.description %><br /><br />
 
+<% if current_user.type == 'AdminUser' || current_user.id == @ad.user_id %>
+  <%= link_to 'Edit', edit_ad_path(@ad) %> 
+<% end %>
+
+<br /><br />
+
 <% @ad.pictures.each do |pic| %>
   <%= image_tag pic.url %>
 <% end %>
