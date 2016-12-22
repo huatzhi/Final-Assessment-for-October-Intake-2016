@@ -11,6 +11,8 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
+gem 'carrierwave', git: 'https://github.com/carrierwaveuploader/carrierwave.git'
+gem 'mini_magick', '~> 4.5', '>= 4.5.1'
 
 group :development, :test do
   gem 'byebug', platform: :mri

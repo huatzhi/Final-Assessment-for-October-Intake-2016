@@ -28,4 +28,6 @@ class Ad < ApplicationRecord
   validates_presence_of :condition
   validates_presence_of :contact_name
   validates_presence_of :email
+
+  mount_uploaders :pictures, PicturesUploader
 end
