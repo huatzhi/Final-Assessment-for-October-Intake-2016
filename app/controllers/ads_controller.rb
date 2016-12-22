@@ -2,7 +2,8 @@ class AdsController < ApplicationController
   before_action :set_ad, only: [:show]
   before_action :authorize, only: [:new, :create]
 
-  def index  
+  def index
+    @index = Ad.all
   end
 
   def new
