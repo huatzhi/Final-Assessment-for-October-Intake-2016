@@ -37,6 +37,7 @@ describe 'navigate' do
       click_on "Post Ad!"
 
       expect(page).to have_content('Ads Title')
+      expect Ad.last.user_id = @admin_user.id
     end
 
     it 'cannot be reach when user is not login' do
