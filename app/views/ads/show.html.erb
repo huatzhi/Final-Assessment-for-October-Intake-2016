@@ -1,1 +1,22 @@
-<%= @ad.inspect %>
+ID: <%= @ad.id %><br /><br />
+
+Title: <%= @ad.title %><br /><br />
+
+Price: RM<%= @ad.price %>
+<br /><br />
+Location: <%= @ad.location %><br /><br />
+
+<% if @ad.condition == 'second_hand' %>
+  <% condition = 'Used (Second hand)' %>
+<% else %>
+  <% condition = 'New (First hand)' %><
+<% end %>
+Condition: <%= condition %><br /><br />
+
+Contact name: <%= @ad.contact_name %><br /><br />
+
+Description: <%= @ad.description %><br /><br />
+
+<% @ad.pictures.each do |pic| %>
+  <%= image_tag pic.url %>
+<% end %>
