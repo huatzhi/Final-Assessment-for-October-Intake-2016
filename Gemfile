@@ -16,6 +16,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'capybara'
   gem 'database_cleaner'
+  gem 'rack_session_access'
 end
 
 group :development do
