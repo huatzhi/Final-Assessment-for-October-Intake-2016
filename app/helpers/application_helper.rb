@@ -4,7 +4,7 @@ module ApplicationHelper
   end
 
   def authorize
-    redirect_to login_url, alert: 'Please login first.' if current_user.nil?
+    redirect_to log_in_url, alert: 'Please login first.' if current_user.nil?
   end
 
   def authorize_admin

@@ -1,0 +1,28 @@
+<h1>Create Ad</h1>
+
+<%= form_for @ad do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+  
+  <%= f.label :price %>
+  <%= f.number_field :price, :class => 'text_field', :step => 0.01 %>
+  
+  <%= f.label :location %> <%= f.select(:location, Ad.locations.keys.map {|location| [location.titleize,location]}) %>
+  
+  <%= f.label :condition %>
+  <%= f.collection_radio_buttons :condition, Ad.conditions, :first, :first %>
+  
+  <%= f.label :contact_name %>
+  <%= f.text_field :contact_name %>
+  
+  <%= f.label :phone_number %>
+  <%= f.text_field :phone_number %>
+
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+
+  <%= f.submit "Post Ad!" %>
+<% end %>
