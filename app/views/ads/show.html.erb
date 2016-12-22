@@ -19,6 +19,7 @@ Description: <%= @ad.description %><br /><br />
 
 <% if current_user.type == 'AdminUser' || current_user.id == @ad.user_id %>
   <%= link_to 'Edit', edit_ad_path(@ad) %> 
+  <%= link_to 'Delete', @ad, method: :delete, data: { confirm: 'Are you sure?' } %>
 <% end %>
 
 <br /><br />

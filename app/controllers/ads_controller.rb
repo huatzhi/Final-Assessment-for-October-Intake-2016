@@ -1,7 +1,7 @@
 class AdsController < ApplicationController
-  before_action :set_ad, only: [:show, :edit, :update]
-  before_action :authorize, only: [:new, :create, :edit, :update]
-  before_action :authorize_owner, only: [:edit, :update]
+  before_action :set_ad, only: [:show, :edit, :update, :destroy]
+  before_action :authorize, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authorize_owner, only: [:edit, :update, :destroy]
 
   def index
     @index = Ad.all
@@ -35,6 +35,11 @@ class AdsController < ApplicationController
     else
       render :edit, notice: 'There was an error processing your request!'
     end
+  end
+
+  def destroy
+    @ad.destroy
+    redirect_to ads_path, notice: 'This ad is deleted.'
   end
 
   private
