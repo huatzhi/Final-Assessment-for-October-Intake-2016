@@ -48,6 +48,17 @@ class AdsController < ApplicationController
     redirect_to ads_path, notice: 'This ad is deleted.'
   end
 
+  def featured_ads
+    location = params[:location] || ''
+    @featured_ads = Ad.featured
+    @featured_ads = @featured_ads.location_filter(location) if location.present?
+    @featured_ads = @featured_ads.limit(10)
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.json
+    end
+  end
+
   private
   def ad_params
     params.require(:ad).permit(:title, :price, :location, :condition, :contact_name, :phone_number, :email, :description, {pictures: []})

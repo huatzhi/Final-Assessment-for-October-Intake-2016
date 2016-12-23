@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'get_feature_ads' => "ads#featured_ads", :as => 'feature_ad'
   post "upgrade" => "users#upgrade", :as => 'payment'
   get "upgrade" => "users#upgrade_page", :as => 'upgrade'
   resources :ads

@@ -7,7 +7,10 @@
 <div class='row'>
   <div class='col-md-12'>
     <p>Select your area to view latest featured ads.</p>
-    <p> dummy here 1st </p>
+    <!-- Area links-->
+    <% Ad.locations.keys.to_a.each do |location| %>
+      <input type="button" class='btn' value="<%= location %>" onclick="filterLocation('<%= location %>');" />
+    <% end %>
   </div>
 </div>
 
@@ -19,30 +22,75 @@
 
 <hr>
 
-<% @featured_ads.each do |ad| %>
-  <div class="row">
-    <div class="col-md-4">
-      <% if !ad.pictures.nil? && ad.pictures[0].present? %>
-        <%= image_tag ad.pictures[0].thumb.url %>
-      <% else %>
-        <p> No image provided </p>
-      <% end %>
+<div id='featured'>
+  <% @featured_ads.each do |ad| %>
+    <div class="row">
+      <div class="col-md-4">
+        <% if !ad.pictures.nil? && ad.pictures[0].present? %>
+          <%= image_tag ad.pictures[0].thumb.url %>
+        <% else %>
+          <p> No image provided </p>
+        <% end %>
+      </div>
+      <div class="col-md-6">
+        <h3><%= link_to ad.title, ad %></h3>
+        <p><%= ad.condition %></p>
+      </div>
+      <div class='col-md-2'>
+        <p>RM<%= ad.price %></p>
+      </div>
     </div>
-    <div class="col-md-6">
-      <h3><%= link_to ad.title, ad %></h3>
-      <p><%= ad.condition %></p>
-    </div>
-    <div class='col-md-2'>
-      <p>RM<%= ad.price %></p>
-    </div>
-  </div>
-  <hr>
-<% end %>
+    <hr>
+  <% end %>
+</div>
 
-<% if !current_user.nil? && !current_user.type.present? %>
+<% if current_user && current_user.type.nil? %>
   <div class='row'>
     <div class='col-md-12'>
       <h3>Want your ads being show here? Click here to upgreade your account to ProUser!</h3>
     </div>
   </div>
 <% end %>
+
+<script type="text/javascript">
+  function filterLocation(state){
+    $.ajax({
+      url: '<%= feature_ad_path %>',
+      data:{
+        format: 'json',
+        location: state
+      },
+      error: function(){
+        console.log('AJAX error');
+      },
+      success: function(data){
+        adsPosition = $('div#featured');
+        adsPosition.empty();
+        var ad_html;
+        for(var i = 0; i < data.ads.length; i++){
+          current_ad = data.ads[i];
+          ad_html = '';
+          ad_html += '<div class="row">';
+          ad_html += '<div class="col-md-4">';
+          if(current_ad.img_url){
+            ad_html += '<img src="' + current_ad.img_url + '" alt="thumb ' + current_ad.title + '">';
+          } else {
+            ad_html += '<p> Image not available. </p>';
+          }
+          ad_html += '</div>';
+          ad_html += '<div class="col-md-6">';
+          ad_html += '<h3><a href="/ads/' + current_ad.id + '">' + current_ad.title + '</a></h3>';
+          ad_html += '<p>' + current_ad.condition + '</p>';
+          ad_html += '</div>';
+          ad_html += '<div class="col-md-2">';
+          ad_html += '<p>RM' + current_ad.price + '</p>';
+          ad_html += '</div>';
+          ad_html += '</div>';
+          ad_html += '<hr>';
+          ad_html += "\n";
+          adsPosition.append(ad_html);
+        }
+      }
+    });
+  }
+</script>
