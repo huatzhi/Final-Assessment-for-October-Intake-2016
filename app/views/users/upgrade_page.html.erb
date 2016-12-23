@@ -1,0 +1,26 @@
+<div class="row">
+  <div class='col-md-12'>
+    <p>Thanks for interested in being a ProUser. This is a one-time payment that you will become a ProUser permanently. It only worth 39.99</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class='col-md-12'>
+    <%= form_tag payment_path, method: "post", id:'checkout' do %>
+      <div id="payment-form"></div>
+      <input type="submit" value="Pay $39.99">
+    <% end %>
+
+    <script src="https://js.braintreegateway.com/js/braintree-2.30.0.min.js"></script>
+    <script>
+    // We generated a client token for you so you can test out this code
+    // immediately. In a production-ready integration, you will need to
+    // generate a client token on your server (see section below).
+    var clientToken = '<%= @client_token %>';
+
+    braintree.setup(clientToken, "dropin", {
+      container: "payment-form"
+    });
+    </script>
+  </div>
+</div>
