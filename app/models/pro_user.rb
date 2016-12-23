@@ -1,0 +1,2 @@
+class ProUser < User
+end
