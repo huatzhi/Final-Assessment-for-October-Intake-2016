@@ -15,6 +15,9 @@ gem 'carrierwave', git: 'https://github.com/carrierwaveuploader/carrierwave.git'
 gem 'mini_magick', '~> 4.5', '>= 4.5.1'
 gem 'textacular', '~> 4.0', '>= 4.0.1'
 gem 'will_paginate', '~> 3.1.0'
+gem 'figaro'
+gem 'braintree'
+gem 'gon'
 
 group :development, :test do
   gem 'byebug', platform: :mri
