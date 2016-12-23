@@ -1,3 +1,28 @@
+<div class='row'>
+  <%= form_tag ads_path, method: :get do %>
+    <div class="col-md-3">
+      <%= label :basic_search, 'Search: ' %>
+      <%= text_field_tag :basic_search %>
+    </div>
+    <div class="col-md-3">
+      <label for='location_filter'>Location: </label>
+      <select id="location" name="location_filter">
+        <option value="" selected="selected" ></option>
+        <% Ad.locations.keys.to_a.each do |location| %>
+          <option value='<%= location %>'><%= location %></option>
+        <% end %>
+      </select>
+    </div>
+    <div class='col-md-3'>
+      <%= label :price, 'Price: ' %>
+      <%= number_field_tag :price_min, nil, step: 0.01 %> ~ <%= number_field_tag :price_max, nil, step: 0.01 %>
+    </div>
+    <div class='col-md-3'>
+      <%= submit_tag 'Filter' %>
+    </div>
+  <% end %>
+</div>
+
 <hr>
 <% @index.each do |ad| %>
   <div class="row">

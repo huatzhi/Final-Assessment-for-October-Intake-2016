@@ -5,10 +5,15 @@ class AdsController < ApplicationController
 
   def index
     @index = Ad.all
+    filtering_params(params).each do |key, value|
+      @index = @index.public_send(key, value) if value.present?
+    end
+    unless params[:basic_search].present?
+      @index.reverse_order
+    end
   end
 
   def new
-    authorize
     @ad = Ad.new
   end
 
@@ -58,7 +63,7 @@ class AdsController < ApplicationController
     end
   end
 
-  def filtering_params
+  def filtering_params(params)
     params.slice(:location_filter, :price_min, :price_max, :condition_filter, :basic_search)
   end
 end
