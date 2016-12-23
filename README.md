@@ -1,3 +1,9 @@
+[Trello link](https://trello.com/b/Zn52euHI)
+[Trello invite](https://trello.com/invite/b/Zn52euHI/85172da82c1180145daaf72b3250ecc6/final-assessment)
+
+Remember to write braintree's detail on application.yml (refer to application.rb) if you want to run this on your machine.
+
+
 # Final Assessment (Oct 2016 Intake)
 
 Date: 21 December 2016, 9:30 am - 23 December 2016, 9:30 pm (60 hours)
