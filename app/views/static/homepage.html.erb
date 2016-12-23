@@ -47,7 +47,7 @@
 <% if current_user && current_user.type.nil? %>
   <div class='row'>
     <div class='col-md-12'>
-      <h3>Want your ads being show here? Click here to upgreade your account to ProUser!</h3>
+      <h3>Want your ads being show here? <%= link_to 'Click here to upgreade your account to ProUser!', upgrade_path %></h3>
     </div>
   </div>
 <% end %>
