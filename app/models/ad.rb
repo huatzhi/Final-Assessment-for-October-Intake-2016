@@ -35,5 +35,6 @@ class Ad < ApplicationRecord
   scope :price_min, -> (price_min) { where "price > #{price_min}" }
   scope :price_max, -> (price_max) { where "price < #{price_max}" }
   scope :condition_filter, -> (condition) { where condition: condition }
+  scope :featured, -> () { joins(:user).where('users.type = ?', 'ProUser') }
   
 end
