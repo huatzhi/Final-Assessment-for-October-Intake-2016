@@ -30,4 +30,10 @@ class Ad < ApplicationRecord
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, message: "need valid email" }
 
   mount_uploaders :pictures, PicturesUploader
+
+  scope :location_filter, -> (location) { where location: location }
+  scope :price_min, -> (price_min) { where "price > price_min" }
+  scope :price_max, -> (price_max) { where "price > price_max" }
+  scope :condition_filter, -> (condition) { where condition: condition }
+  
 end

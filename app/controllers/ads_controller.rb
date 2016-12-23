@@ -57,4 +57,8 @@ class AdsController < ApplicationController
       redirect_to ads_path, notice: 'You do not have the permission to do this action'
     end
   end
+
+  def filtering_params
+    params.slice(:location_filter, :price_min, :price_max, :condition_filter, :basic_search)
+  end
 end
