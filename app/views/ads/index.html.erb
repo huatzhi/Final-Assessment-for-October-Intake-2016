@@ -43,3 +43,14 @@
   </div>
   <hr>
 <% end %>
+
+<div class='row'>
+  <div class="digg_pagination">
+    <div class="page_info col-md-6">
+      <%= page_entries_info @index %>
+    </div>
+    <div class='col-md-6'>
+      <%= will_paginate @index, :container => false %>
+    </div>
+  </div>
+</div>

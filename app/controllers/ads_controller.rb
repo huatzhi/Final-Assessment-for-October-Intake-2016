@@ -11,6 +11,7 @@ class AdsController < ApplicationController
     unless params[:basic_search].present?
       @index.reverse_order
     end
+    @index = @index.paginate(:page => params[:page], :per_page => 10)
   end
 
   def new
